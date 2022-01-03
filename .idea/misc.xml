@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_admin_login.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_change_password.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_connect.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_create_admin.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_create_patient.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_device.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_disconnect_alarm.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_example2.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_full_chart.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_login.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_main.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_main_medical.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_new_connect.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_new_login.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_new_warm_up.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_splash.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/activity_warm_up.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/dialog_password.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/dialog_rang_change.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/dialog_time_change.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/fragment_admin_setting.xml" value="0.19630192502532928" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/fragment_new_setting.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/fragment_setting.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/layout/sheet_number_picker.xml" value="0.40353260869565216" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/menu/bottom_nav_menu.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/menu/bottom_nav_menu_medical.xml" value="0.4036458333333333" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/yuisk/AndroidStudioProjects/agms_o/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.25833333333333336" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

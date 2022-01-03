@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="kr.co.uxn.agms">
+
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!--
+ If your app targets Android 9 or lower, you can declare
+         ACCESS_COARSE_LOCATION instead.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AGMS">
+        <service
+            android:name=".service.AutoSave"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.patient.CreatePatientActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar"></activity>
+        <activity
+            android:name=".ui.admin.CreateAdminActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar"></activity>
+        <activity
+            android:name=".ui.popup.DisconnectAlarmActivity"
+            android:launchMode="singleInstance"
+            android:theme="@style/Theme.Transparent" />
+        <activity
+            android:name=".ui.admin.ChangePasswordActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar"></activity>
+        <activity
+            android:name=".ui.admin.LoginAdminActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AGMS.NoActionBar" />
+        <activity
+            android:name=".ui.connect.ConnectActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar" />
+        <activity
+            android:name=".ui.connect.WarmupActivity"
+            android:theme="@style/Theme.AGMS.NoActionBar" />
+        <activity
+            android:name=".ui.dashboard.FullChartActivity"
+            android:configChanges="orientation"
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Theme.AGMS.NoActionBar" />
+
+        <service
+            android:name=".service.BluetoothService"
+            android:enabled="true"
+            android:exported="false" />
+
+        <receiver
+            android:name=".service.AlarmBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="kr.co.uxn.agms.alarm" />
+                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

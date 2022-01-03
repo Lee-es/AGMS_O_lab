@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_home"-->
+<!--        android:name="kr.co.uxn.agms.ui.home.HomeFragment"-->
+<!--        android:label="@string/title_home"-->
+<!--        tools:layout="@layout/fragment_home" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_dashboard"-->
+<!--        android:name="kr.co.uxn.agms.ui.dashboard.DashboardFragment"-->
+<!--        android:label="@string/title_dashboard"-->
+<!--        tools:layout="@layout/fragment_dashboard" />-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:name="kr.co.uxn.agms.ui.notifications.NotificationsFragment"-->
+<!--        android:label="@string/title_notifications"-->
+<!--        tools:layout="@layout/fragment_notifications" />-->
+
+
+    <fragment
+            android:id="@+id/navigation_home"
+            android:name="kr.co.uxn.agms.ui.home.NewHomeFragment"
+            android:label="@string/title_home"
+            tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_diary"
+        android:name="kr.co.uxn.agms.ui.dashboard.DashboardFragment"
+        android:label="@string/title_diary"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_calibration"
+        android:name="kr.co.uxn.agms.ui.calibration.CalibrationFragment"
+        android:label="@string/title_calibration"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_range"
+        android:name="kr.co.uxn.agms.ui.range.RangeFragment"
+        android:label="@string/title_range"
+        tools:layout="@layout/fragment_dashboard" />
+
+    <fragment
+        android:id="@+id/navigation_setting"
+        android:name="kr.co.uxn.agms.ui.setting.SettingFragment"
+        android:label="@string/title_setting"
+        tools:layout="@layout/fragment_dashboard" />
+
+</navigation>

@@ -1,0 +1,12 @@
+
+v	java:S116"\Rename this field "graph_Current_MIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ã¿èÂüÿÿÿÿ
+v	java:S116"\Rename this field "graph_Current_MAX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ç€…Æúÿÿÿÿ
+u	java:S116"[Rename this field "graph_TargetTime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åªÖ«üÿÿÿÿ
+7
+java:S1116"Remove this empty statement.(åªÖ«üÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôöµÄûÿÿÿÿ
+b	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(”€³6
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ìãµ³úÿÿÿÿ
+h	java:S100!"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡úüïüÿÿÿÿ
+c	java:S100%"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹Ê ‰
+c	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Š‹Êî

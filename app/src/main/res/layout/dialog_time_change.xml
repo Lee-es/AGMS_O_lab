@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_background"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/graphupdatecyclesettings"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/now_time"
+            android:layout_width="wrap_content"
+            android:text="@string/current_cycle_s"
+            android:textSize="20sp"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"/>
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/please_enter_a_multiple_of_ten"-->
+<!--            android:layout_marginTop="10dp"-->
+<!--            android:layout_marginBottom="10dp"-->
+<!--            android:textSize="20sp"-->
+<!--            android:textColor="@color/white"-->
+<!--            />-->
+
+
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_bottom"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:ignore="MissingConstraints" />
+
+            <EditText
+                android:id="@+id/et_time"
+                android:layout_width="300dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="40dp"
+                android:background="@color/white"
+                android:hint="@string/second"
+                android:gravity="center"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                app:layout_constraintStart_toStartOf="@id/tv_time"
+                app:layout_constraintEnd_toEndOf="@id/tv_time"
+                app:layout_constraintTop_toTopOf="@id/tv_time" />
+
+
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            >
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="확인"
+                android:textSize="30sp"
+                android:layout_marginTop="30dp"
+                android:textColor="#fff"
+                android:minHeight="44dp"
+                android:id="@+id/button_ok"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="25dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/rectangle_56c79c_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:text="취소"
+                android:textSize="30sp"
+                android:layout_marginTop="30dp"
+                android:textColor="#fff"
+                android:minHeight="44dp"
+                android:id="@+id/button_cancel"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginBottom="25dp"
+                android:background="@drawable/rectangle_56c79c_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+
+    </LinearLayout>>
+
+</LinearLayout>

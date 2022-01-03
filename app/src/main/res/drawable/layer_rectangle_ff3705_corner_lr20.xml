@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:height="50dp"
+        android:gravity="bottom"
+        android:drawable="@drawable/rectangle_ff3705_corner_lr20"
+        />
+    <item
+        android:gravity="bottom"
+        android:height="3dp"
+        android:bottom="2dp"
+        android:drawable="@color/color_233b53"
+        />
+</layer-list>

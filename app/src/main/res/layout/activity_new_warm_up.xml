@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:background="#001b37"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/page_title"
+        android:textStyle="bold"
+        android:text="@string/title_warm_up"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/page_title_line"
+        android:layout_alignRight="@id/page_title"
+        android:layout_alignLeft="@id/page_title"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/page_title"
+        android:background="#56c79c"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="@string/idle_check"
+        android:textColor="#fff"
+        android:minHeight="44dp"
+        android:id="@+id/idle_check"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/rectangle_56c79c_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <com.mindorks.RadialProgressBar
+        android:id="@+id/progress_view"
+        android:layout_width="210dp"
+        android:layout_height="210dp"
+        android:layout_gravity="center"
+        app:circleThickness="0.7"
+        app:hasOneProgressView="true"
+        app:hasTwoProgressView="false"
+        app:isAnimationOn="true"
+        app:outerMaxProgress="100"
+        app:outerProgress="0"
+        app:hasEmptyProgressBar="true"
+        app:outerEmptyProgressColor="#1B2D41"
+        android:layout_centerInParent="true"
+        app:useRoundedCorner="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:layout_marginRight="10dp"
+            android:textSize="20sp"
+            android:text="진행률:"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/progress"
+            android:textSize="20sp"
+            android:textColor="#fff"
+            android:text="@string/none_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+    <Button
+        android:visibility="visible"
+        android:id="@+id/buttoSkp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="30dp"
+
+        android:layout_alignParentRight="true"
+        android:text="@string/button_skip_warm_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

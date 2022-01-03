@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:padding="16dp"
+    >
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/close_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:src="@drawable/ic_baseline_close_24" />
+
+    <TextView
+        android:id="@+id/page_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/close_button"
+        android:text="@string/title_chart"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/page_title_line"
+        android:layout_alignRight="@id/page_title"
+        android:layout_alignLeft="@id/page_title"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/page_title"
+        android:background="#56c79c"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <RadioGroup
+        android:layout_alignParentRight="true"
+        android:id="@+id/wrap_button"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/day_average"
+            android:textColor="@color/button_color"
+            android:text="@string/day_average"
+            android:button="@null"
+            android:checked="false"
+            app:buttonCompat="@null"
+            android:background="@drawable/selector_toggle"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:layout_height="32dp" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/week_average"
+            android:textColor="@color/button_color"
+            android:text="@string/week_average"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:button="@null"
+            app:buttonCompat="@null"
+            android:background="@drawable/selector_toggle"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:layout_height="32dp" />
+        <androidx.appcompat.widget.AppCompatRadioButton
+            android:id="@+id/month_average"
+            android:textColor="@color/button_color"
+            android:text="@string/month_average"
+            android:button="@null"
+            app:buttonCompat="@null"
+            android:background="@drawable/selector_toggle"
+            android:layout_width="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:gravity="center"
+            android:layout_height="32dp" />
+    </RadioGroup>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart1"
+        android:layout_marginTop="20dp"
+
+        android:layout_below="@id/page_title_line"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</RelativeLayout>

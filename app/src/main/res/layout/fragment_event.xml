@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+
+    android:background="@color/app_background">
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/page_title"
+        android:textStyle="bold"
+        android:text="@string/title_event"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/page_title_line"
+        android:layout_alignRight="@id/page_title"
+        android:layout_alignLeft="@id/page_title"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/page_title"
+        android:background="#56c79c"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:id="@+id/message_login"
+        android:layout_marginTop="18dp"
+        android:textStyle="bold"
+        android:layout_below="@id/page_title_line"
+        android:textColor="@color/text_color"
+        android:text="@string/event_desc"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/message_login"
+        android:id="@+id/user_name_title"
+        android:text="@string/label_time"
+        android:textSize="12sp"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        style="@style/edit_text"
+        android:background="@drawable/selector_rectangle_4dc091"
+        android:layout_marginTop="8dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:id="@+id/username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_name_title"
+
+        android:inputType="textEmailAddress"
+        android:selectAllOnFocus="true" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/username"
+        android:id="@+id/number_title"
+        android:text="@string/label_event"
+        android:textSize="12sp"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        style="@style/edit_text"
+        android:maxLines="1"
+        android:inputType="text"
+        android:layout_below="@id/number_title"
+        android:id="@+id/patient_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/selector_rectangle_4dc091"
+        android:imeOptions="actionDone"
+        android:imeActionLabel="@string/action_next"
+        android:selectAllOnFocus="true" />
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/patient_number"
+        android:id="@+id/glucose_title"
+        android:text="@string/label_glucose"
+        android:textSize="12sp"
+        android:textColor="@color/text_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        style="@style/edit_text"
+        android:layout_below="@id/glucose_title"
+        android:id="@+id/event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:inputType="numberDecimal"
+        android:imeActionLabel="@string/action_create"
+        android:imeOptions="actionDone"
+        android:background="@drawable/selector_rectangle_4dc091"
+        android:selectAllOnFocus="true" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:textColor="#fff"
+        android:minHeight="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/selector_rectangle_56c79c_en_dis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/create"
+        android:enabled="false"
+        android:text="@string/action_create" />
+
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true" />
+</RelativeLayout>

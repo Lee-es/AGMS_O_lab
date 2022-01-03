@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:background="@color/app_background"
+        tools:context=".ui.home.HomeFragment">
+
+
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:id="@+id/page_title"
+            android:textStyle="bold"
+            android:text="@string/title_range"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/page_title_line"
+            android:layout_alignRight="@id/page_title"
+            android:layout_alignLeft="@id/page_title"
+            android:layout_marginTop="12dp"
+            android:layout_below="@id/page_title"
+            android:background="#56c79c"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
+
+        <TextView
+            android:layout_below="@id/page_title_line"
+            android:layout_marginTop="14dp"
+            android:id="@+id/sub_message"
+            android:textSize="16sp"
+            android:textColor="@color/text_color"
+            android:text="@string/range_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:id="@+id/wrap_center_panel"
+            android:layout_marginTop="60dp"
+            android:layout_below="@id/sub_message"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:textColor="#001b37"
+                    android:textSize="18sp"
+                    android:text="@string/low"
+                    android:gravity="center"
+                    android:background="@drawable/rectangle_fcd203_corner_lr20"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+                <View
+                    android:background="#233b53"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <View
+                    android:background="#fcd203"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+                <FrameLayout
+                    android:background="@drawable/rectangle_233b53_corner_blr20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+                    <EditText
+                        android:text="@string/zero_value"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="51dp"
+                        android:textSize="56sp"
+                        android:lineHeight="85sp"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:background="@null"
+                        android:id="@+id/edit_text_low"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/glucose_unit"
+                        android:textColor="@color/text_dark_color"
+                        android:textSize="16sp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" >
+                <TextView
+                    android:textColor="#001b37"
+                    android:textSize="18sp"
+                    android:text="@string/high"
+                    android:gravity="center"
+
+                    android:background="@drawable/rectangle_ff3705_corner_lr20"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp" />
+
+                <View
+                    android:background="#233b53"
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp" />
+                <View
+                    android:background="#ff3705"
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp" />
+
+
+                <FrameLayout
+                    android:background="@drawable/rectangle_233b53_corner_blr20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
+
+                    <EditText
+                        android:text="@string/zero_value"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/text_color"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="51dp"
+                        android:textSize="56sp"
+                        android:lineHeight="85sp"
+                        android:gravity="center"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:background="@null"
+                        android:id="@+id/edit_text_high"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <TextView
+                        android:text="@string/glucose_unit"
+                        android:textColor="@color/text_dark_color"
+                        android:textSize="16sp"
+                        android:layout_gravity="bottom|center_horizontal"
+                        android:layout_marginBottom="40dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                </FrameLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <View
+            android:id="@+id/center_point"
+            android:layout_centerInParent="true"
+            android:layout_width="1dp"
+            android:layout_height="1dp" />
+
+        <RelativeLayout
+            android:id="@+id/wrap_urgent_low"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/wrap_center_panel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:text="@string/urgent_low"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_color"
+                android:id="@+id/urgent_low_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/urgent_low_unit"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:textColor="@color/disable_color"
+                android:layout_alignParentRight="true"
+                android:text="@string/glucose_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:layout_toLeftOf="@id/urgent_low_unit"
+                android:text="@string/urgent_low_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_alignParentBottom="true"
+                android:id="@+id/low_line"
+                android:background="#233b53"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/wrap_urgent_high"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/wrap_urgent_low"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:gravity="center_vertical"
+                android:layout_alignParentLeft="true"
+                android:text="@string/urgent_high"
+                android:textSize="16sp"
+                android:layout_centerVertical="true"
+                android:textColor="@color/text_color"
+                android:id="@+id/urgent_high_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/urgent_high_unit"
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:textColor="@color/disable_color"
+                android:layout_alignParentRight="true"
+                android:text="@string/glucose_unit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+
+                android:layout_centerVertical="true"
+                android:textSize="16sp"
+                android:layout_marginRight="10dp"
+                android:textColor="@color/white"
+                android:layout_toLeftOf="@id/urgent_high_unit"
+                android:text="@string/urgent_high_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <View
+                android:layout_alignParentBottom="true"
+                android:id="@+id/high_line"
+                android:background="#233b53"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <FrameLayout
+
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/bottom_sheet_behavior" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:id="@+id/linearLayout"
+    android:background="#001b37"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/calibration_title"
+        android:textStyle="bold"
+        android:text="@string/title_calibration"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:id="@+id/calibration_title_line"
+        android:layout_alignRight="@id/calibration_title"
+        android:layout_alignLeft="@id/calibration_title"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/calibration_title"
+        android:background="#56c79c"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
+
+    <TextView
+        android:layout_marginTop="14dp"
+        android:textSize="16sp"
+        android:layout_below="@id/calibration_title_line"
+        android:textColor="#fff"
+        android:text="@string/calibration_desc"
+        android:id="@+id/calibration_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    <TextView
+        android:textColor="#fff"
+        android:text="@string/calibration_1_title"
+        android:layout_marginTop="60dp"
+        android:layout_below="@id/calibration_desc"
+        android:id="@+id/calibration_title_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:textColor="@color/edittext_color"
+        android:minHeight="44dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/selector_rectangle_4dc091"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/calibration_title_1"
+        android:id="@+id/edit_text_calibration1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:textColor="#fff"
+        android:text="@string/calibration_2_title"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/edit_text_calibration1"
+        android:id="@+id/calibration_title_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:enabled="false"
+        android:textColor="@color/edittext_color"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:minHeight="44dp"
+        android:background="@drawable/selector_rectangle_4dc091"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/calibration_title_2"
+        android:id="@+id/edit_text_calibration2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/glucose_unit_1"
+        android:layout_alignBaseline="@id/edit_text_calibration1"
+        android:text="@string/glucose_unit"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/edittext_color"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:enabled="false"
+        android:id="@+id/glucose_unit_2"
+        android:layout_alignBaseline="@id/edit_text_calibration2"
+        android:text="@string/glucose_unit"
+        android:textColor="@color/edittext_color"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:text="@string/done"
+        android:textColor="#fff"
+        android:minHeight="44dp"
+        android:id="@+id/button_done"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/rectangle_56c79c_4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</RelativeLayout>

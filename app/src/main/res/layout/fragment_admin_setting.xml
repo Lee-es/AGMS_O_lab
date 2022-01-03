@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#001b37"
+    android:paddingLeft="25dp"
+    android:paddingRight="25dp"
+    >
+    <TextView
+        android:layout_marginTop="16dp"
+        android:id="@+id/page_title"
+        android:textStyle="bold"
+        android:text="@string/title_setting"
+        android:textSize="20sp"
+        android:textColor="#ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/page_title"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_new_user"
+        android:textColor="@color/text_color"
+        android:text="@string/button_new_patient"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/button_new_user"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_new_device"
+        android:textColor="@color/text_color"
+        android:text="@string/button_new_device"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/button_new_device"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_graphupdatecyclesetting"
+        android:textColor="@color/text_color"
+        android:text="@string/graphupdatecyclesettings"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@+id/button_graphupdatecyclesetting"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_new_rangsetting"
+        android:textColor="@color/text_color"
+        android:text="@string/setcurrentvaluerange"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/button_new_rangsetting"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_save"
+        android:textColor="@color/text_color"
+        android:text="@string/button_save"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/button_save"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_send"
+        android:textColor="@color/text_color"
+        android:text="@string/button_send"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/button_send"
+        android:minHeight="52dp"
+        android:background="@drawable/rectangle_233b53"
+        android:textSize="18sp"
+        android:gravity="start|center_vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:id="@+id/button_cancel"
+        android:textColor="@color/text_color"
+        android:text="@string/button_off"
+        android:layout_width="match_parent"
+        android:layout_height="45dp" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_cancel"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="-1dp"
+        android:gravity="bottom"
+        android:orientation="vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp">
+
+        <TextView
+            android:id="@+id/admin_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/button_continue"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/device_serial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/button_continue"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/device_battery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/button_continue"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/device_sensor_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/button_continue"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+</RelativeLayout>

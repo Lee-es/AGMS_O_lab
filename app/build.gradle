@@ -1,0 +1,198 @@
+plugins {
+    id 'com.android.application'
+    id 'jacoco'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "kr.co.uxn.agms"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 24
+        versionName "(A)1.0.35"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            testCoverageEnabled true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment:2.3.2'
+    implementation 'androidx.navigation:navigation-ui:2.3.2'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    implementation "androidx.lifecycle:lifecycle-service:2.3.0"
+    implementation 'androidx.preference:preference:1.1.1'//For Java Projects
+    implementation 'androidx.annotation:annotation:1.1.0'
+
+    implementation files('..\\commons-net-3.8.0\\commons-net-3.8.0.jar') //FTP lib
+
+    implementation 'com.polidea.rxandroidble2:rxandroidble:1.11.1'
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'com.github.AnyChart:AnyChart-Android:1.1.2'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+    implementation 'com.github.MindorksOpenSource:RadialProgressBar:v1.3'
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    implementation 'androidx.work:work-runtime:2.3.4'
+
+    def activity_version = "1.1.0"
+    implementation "androidx.activity:activity:$activity_version"
+
+    def room_version = "2.2.6"
+    implementation "androidx.room:room-runtime:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+
+    implementation 'com.super_rabbit.wheel_picker:NumberPicker:1.0.1'
+
+    implementation  'at.favre.lib:bcrypt:0.9.0'
+
+    testImplementation 'junit:junit:4.+'
+    // Optional -- Robolectric environment
+    testImplementation 'androidx.test:core:1.3.0'
+    androidTestImplementation 'androidx.test:runner:1.3.0'
+    androidTestImplementation 'androidx.test:rules:1.3.0'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.uiautomator:uiautomator:2.2.0'
+
+    testImplementation 'androidx.test.ext:truth:1.3.0-rc01'
+    testImplementation "com.google.truth:truth:1.1.2"
+    androidTestImplementation "com.google.truth:truth:1.1.2"
+
+}
+
+jacoco {
+    toolVersion = "0.8.5"
+    // Custom reports directory can be specfied like this:
+    // reportsDir = file("$buildDir/customJacocoReportDir")
+}
+
+tasks.withType(Test) {
+    jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
+    // see related issue https://github.com/gradle/gradle/issues/5184#issuecomment-457865951
+}
+
+project.afterEvaluate {
+
+    (android.hasProperty('applicationVariants')
+            ? android.'applicationVariants'
+            : android.'libraryVariants')
+            .all { variant ->
+                def variantName = variant.name
+                def unitTestTask = "test${variantName.capitalize()}UnitTest"
+                def androidTestCoverageTask = "create${variantName.capitalize()}CoverageReport"
+
+                tasks.create(name: "${unitTestTask}Coverage", type: JacocoReport, dependsOn: [
+                        "$unitTestTask",
+                        "$androidTestCoverageTask"
+                ]) {
+                    group = "Reporting"
+                    description = "Generate Jacoco coverage reports for the ${variantName.capitalize()} build"
+
+                    reports {
+                        html.enabled = true
+                        xml.enabled = true
+                        csv.enabled = true
+                    }
+
+                    def excludes = [
+                            // data binding
+                            'android/databinding/**/*.class',
+                            '**/android/databinding/*Binding.class',
+                            '**/android/databinding/*',
+                            '**/androidx/databinding/*',
+                            '**/BR.*',
+                            // android
+                            '**/R.class',
+                            '**/R$*.class',
+                            '**/BuildConfig.*',
+                            '**/Manifest*.*',
+                            '**/*Test*.*',
+                            'android/**/*.*',
+                            // butterKnife
+                            '**/*$ViewInjector*.*',
+                            '**/*$ViewBinder*.*',
+                            // dagger
+                            '**/*_MembersInjector.class',
+                            '**/Dagger*Component.class',
+                            '**/Dagger*Component$Builder.class',
+                            '**/*Module_*Factory.class',
+                            '**/di/module/*',
+                            '**/*_Factory*.*',
+                            '**/*Module*.*',
+                            '**/*Dagger*.*',
+                            '**/*Hilt*.*',
+                            // kotlin
+                            '**/*MapperImpl*.*',
+                            '**/*$ViewInjector*.*',
+                            '**/*$ViewBinder*.*',
+                            '**/BuildConfig.*',
+                            '**/*Component*.*',
+                            '**/*BR*.*',
+                            '**/Manifest*.*',
+                            '**/*$Lambda$*.*',
+                            '**/*Companion*.*',
+                            '**/*Module*.*',
+                            '**/*Dagger*.*',
+                            '**/*Hilt*.*',
+                            '**/*MembersInjector*.*',
+                            '**/*_MembersInjector.class',
+                            '**/*_Factory*.*',
+                            '**/*_Provide*Factory*.*',
+                            '**/*Extensions*.*',
+                            // sealed and data classes
+                            '**/*$Result.*',
+                            '**/*$Result$*.*'
+                    ]
+
+                    def javaClasses = fileTree(dir: variant.javaCompileProvider.get().destinationDir,
+                            excludes: excludes)
+                    def kotlinClasses = fileTree(dir: "${buildDir}/tmp/kotlin-classes/${variantName}",
+                            excludes: excludes)
+
+                    classDirectories.setFrom(files([
+                            javaClasses,
+                            kotlinClasses
+                    ]))
+
+                    def variantSourceSets = variant.sourceSets.java.srcDirs.collect { it.path }.flatten()
+                    sourceDirectories.setFrom(project.files(variantSourceSets))
+
+                    def androidTestsData = fileTree(dir: "${buildDir}/outputs/code_coverage/${variantName}AndroidTest/connected/", includes: ["**/*.ec"])
+
+                    executionData(files([
+                            "$project.buildDir/jacoco/${unitTestTask}.exec",
+                            androidTestsData
+                    ]))
+                }
+
+            }
+
+
+}

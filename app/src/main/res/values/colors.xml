@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name = "graph_grid_line">#9fa8da</color>
+    <color name = "graph_line">#1cc4c1</color>
+    <color name = "graph_limitline">#E2C9C9</color>
+    <color name = "graph_coordinates">#CDC4C4</color>
+
+    <color name="grey_50">#FAFAFA</color>
+    <color name="grey_100">#F5F5F5</color>
+    <color name="grey_200">#EEEEEE</color>
+    <color name="grey_300">#E0E0E0</color>
+    <color name="grey_400">#BDBDBD</color>
+    <color name="grey_500">#9E9E9E</color>
+    <color name="grey_600">#757575</color>
+    <color name="grey_700">#616161</color>
+    <color name="grey_800">#424242</color>
+    <color name="grey_900">#212121</color>
+    <color name="grey_1000">#1a1a1a</color>
+
+    <color name="app_background">#001b37</color>
+    <color name="highlight_color">#56c79c</color>
+    <color name="disable_color">#4d6073</color>
+    <color name="text_color">#ffffff</color>
+    <color name="text_dark_color">#9b9b9b</color>
+    <color name="navigation_background">#061729</color>
+    <color name="color_233b53">#233b53</color>
+
+
+</resources>

@@ -1,0 +1,244 @@
+<resources>
+    <string name="app_name">AGMS</string>
+    <string name="title_home">Home</string>
+    <string name="title_login">Login</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_connect">Connect</string>
+    <string name="title_diary">Diary</string>
+    <string name="title_event">Event</string>
+    <string name="title_statistic">Statistic</string>
+    <string name="title_calibration">Calibration</string>
+    <string name="title_range">Range</string>
+    <string name="title_setting">Setting</string>
+    <string name="title_chart">Chart</string>
+
+    <string name="calibration_desc">After 30 minutes of the first calibration,\ndo the second calibration.</string>
+
+    <string name="connect_title">Serial</string>
+    <string name="calibration_1_title">Calibration 1</string>
+    <string name="calibration_2_title">Calibration 2</string>
+
+    <string name="start_scan">Start scan</string>
+    <string name="stop_scan">Stop scan</string>
+    <string name="scan_in_background">Scan in background</string>
+    <string name="mac_address">MAC: %s</string>
+    <string name="connection_state">State: %s</string>
+    <string name="read_rssi">RSSI: %d</string>
+    <string name="prefix_hex">0x</string>
+    <string name="disconnect">Disconnect</string>
+    <string name="connect">Connect</string>
+    <string name="idle_check">Stabilization check</string>
+    <string name="connecting">Connecting</string>
+
+    <string name="range_title">Alert range set up</string>
+    <string name="low">Low</string>
+    <string name="high">High</string>
+
+    <string name="urgent_low">Urgent Low</string>
+    <string name="urgent_high">Urgent High</string>
+
+    <string name="urgent_high_value">220</string>
+    <string name="urgent_low_value">40</string>
+
+    <string name="glucose_unit">mg/dl</string>
+    <string name="done">Done</string>
+
+
+    <string name="title_warm_up">Warm-up</string>
+    <string name="button_warm_up">Warm-up</string>
+    <string name="button_skip_warm_up">Skip</string>
+    <!-- Ble scan error messages -->
+    <string name="error_bluetooth_not_available">Bluetooth is not available</string>
+    <string name="error_bluetooth_disabled">Enable bluetooth and try again</string>
+    <string name="error_location_permission_missing">On Android 6.0 location permission is required. Please enable it in phone settings</string>
+    <string name="error_location_services_disabled">Location services need to be enabled on Android 6.0</string>
+    <string name="error_scan_failed_already_started">Scan with the same filters is already started</string>
+    <string name="error_scan_failed_application_registration_failed">Failed to register application for bluetooth scan</string>
+    <string name="error_scan_failed_feature_unsupported">Scan with specified parameters is not supported</string>
+    <string name="error_scan_failed_internal_error">Scan failed due to internal error</string>
+    <string name="error_scan_failed_out_of_hardware_resources">Scan cannot start due to limited hardware resources</string>
+    <string name="error_undocumented_scan_throttle">Android 7+ does not allow more scans.</string>
+    <string name="error_undocumented_scan_throttle_retry">Try in %d seconds</string>
+    <string name="error_bluetooth_cannot_start">Unable to start scanning</string>
+    <string name="error_unknown_error">Unknown error</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="invalid_username_or_password">Not a valid username or password</string>
+    <string name="permission_error_message">You must allow Bluetooth-related permissions to connect the instrument.</string>
+    <string name="bluetooth_on_error_message">Turn on Bluetooth to connect the machine.</string>
+    <string name="write_permission_error_message">Please allow write permission to save the csv file.</string>
+    <string name="alert_title">Notification</string>
+    <string name="start_activity">Open App</string>
+    <string name="stop_bluetooth_connect">Disconnect device</string>
+    <string name="bluetooth_init_error">Bluetooth could not be initialized.</string>
+    <string name="toast_device_already_connected">The device is already connected.</string>
+    <string name="toast_device_connected">The device is already connected.</string>
+    <string name="toast_device_scan_now">Looking for device.</string>
+    <string name="toast_device_start_connect">Connect the device.</string>
+    <string name="file_save_now">Saving file</string>
+    <string name="alert_message_device_connect_error">The device is not connected to the smartphone.</string>
+
+    <string name="button_new_patient">New patient</string>
+    <string name="button_new_user">New user</string>
+    <string name="button_new_device">New device</string>
+    <string name="button_new_sensor">New sensor</string>
+    <string name="confirm">Check</string>
+    <string name="text_event_time">Time : %s</string>
+    <string name="text_event_content">Event : %s</string>
+    <string name="text_event_glucose">glucose : %s</string>
+    <string name="text_confirm_event">Do you want to record this event?</string>
+
+
+
+    <string name="text_patient_name">Patient name: %s</string>
+    <string name="text_patient_number">Patient Number: %s</string>
+    <string name="dialog_create_patient_confirm">Are you sure you want to register the patient?</string>
+    <string name="dialog_app_off_confirm">Closing the APP disconnects the device and terminates the patient"'"s measurement.\nDo you want to continue?</string>
+
+    <string name="button_save">Save</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_off">App Off</string>
+
+    <string name="text_device_disconnected">Bluetooth connection lost.\nPlease check Bluetooth status and device.</string>
+
+    <string name="title_dialog">Notification</string>
+    <string name="title_dialog_in_progress">Measurement in progress</string>
+    <string name="dialog_">Measurement in progress</string>
+    <string name="dialog_message_new_device">To connect a new device, the existing connection is lost and the measurement is terminated. Would you like to go on?</string>
+    <string name="dialog_message_new_user">Changing to a new user will terminate the current measurement. Would you like to go on?</string>
+    <string name="range_desc">Alert range set up</string>
+    <string name="greet_morning">Good morning</string>
+    <string name="greet_lunch">Enjoy your lunch</string>
+    <string name="greet_afternoon">Good afternoon</string>
+    <string name="greet_evening">Good evening</string>
+    <string name="greet_night">Good night</string>
+    <string name="normal_range">Normal Range</string>
+    <string name="low_range">Low Range</string>
+    <string name="high_range">High Range</string>
+    <string name="enter_the_valid_calibration">Please enter a valid glucose value.</string>
+    <string name="dialog_message_calibration">Please use the value of BG (disposable blood glucose measurement) measured 2 hours after fasting blood sugar and food.</string>
+    <string name="dialog_message_go_setting_to_change_admin_password">Three months have passed since the administrator password was set. Do you want to replace the move to the setup screen password?</string>
+    <string name="dialog_message_go_setting_to_change_sensor">Sensor replacement time has passed. Do you want to replace the sensor and move to the setup screen?</string>
+    <string name="dialog_message_retry_warmup">Do you want to stabilize again?</string>
+    <string name="dialog_button_stable">Stabilization</string>
+    <string name="dialog_button_change_sensor">Sensor Replacement</string>
+    <string name="day_average">Day Average</string>
+    <string name="week_average">Week Average</string>
+    <string name="month_average">Month Average</string>
+    <string name="title_activity_main2">MainActivity</string>
+    <string name="none_value">\?</string>
+    <string name="zero_value">0</string>
+
+    <string name="message_login">Welcome to,\nAgms</string>
+    <string name="message_user_name">User Name</string>
+    <string name="message_connect">Enter the device’s number and\nconnect or warm up.</string>
+
+    <string name="create_patient">Create patient</string>
+
+    <string name="message_patient_name">Patient name</string>
+    <string name="message_patient_number">Patient number </string>
+
+    <string name="action_create">Create</string>
+    <string name="action_next">Next</string>
+
+    <string name="error_empty_patient_number">Please enter the patient number.</string>
+    <string name="error_empty_patient_name">Please enter the patient name.</string>
+    <string name="error_not_number_error_patient_number">Please enter the patient number only as a number.</string>
+    <string name="file_save_at_index">Save the data.</string>
+    <string name="error_duplicate_patient_number">Patient number in use. Please enter another number.</string>
+    <string name="event_desc">If you have an activity that can cause a change in blood sugar, please select the time and simply write it down in 20 characters in the event column and press the button.</string>
+
+    <string name="label_time">Time</string>
+    <string name="label_event">Event</string>
+    <string name="label_glucose">Glucose</string>
+    <string name="hint_time">00:00:00</string>
+    <string name="error_invalid_time">Please enter the exact time.</string>
+    <string name="dialog_no_future">Unable to set time to future.</string>
+    <string name="error_empty_event">Please enter the event or glucose.</string>
+    <string name="dialog_confirm_event">Do you want to record the event?</string>
+    <string name="toast_save_event">The event has been recorded.</string>
+
+    <string name="title_admin_register">Admin Register</string>
+    <string name="label_admin_register">Please register your administrator\naccount information.</string>
+    <string name="label_admin_id">Admin ID</string>
+    <string name="label_password">Password</string>
+    <string name="label_password_check">Password Check</string>
+    <string name="label_password_hint">Password Hint</string>
+    <string name="error_empty_admin_id">Please enter your administrator ID.</string>
+    <string name="error_empty_admin_password">Please enter your password.</string>
+    <string name="error_empty_admin_password_check">Please enter a password check.</string>
+    <string name="error_empty_admin_password_hint">Please enter a password hint.</string>
+    <string name="error_empty_admin_password_not_equal">Password and password check are not the same.</string>
+    <string name="error_empty_admin_password_length">Please enter at least %1$d digits of password.</string>
+
+    <string name="error_duplicate_admin_id">Duplicate ID found.</string>
+    <string name="error_password_hint_not_equal">Please check the password hint.</string>
+    <string name="error_check_parameter">Please check the input value.</string>
+    <string name="error_passowrd_not_equal">Please check your password.</string>
+    <string name="error_no_admin_data">Please check the id.</string>
+    <string name="error_no_admin_data_create">There is no administrator information. Go to the Create screen.</string>
+    <string name="message_pasword_chagned">Your password has been changed</string>
+
+    <string name="button_continue">Continue</string>
+
+    <string name="admin_login_desc">Please enter your ID and password.</string>
+    <string name="admin_login_title">Login</string>
+    <string name="change_password">CHANGE PASSWORD</string>
+    <string name="password_change_title">Password Change</string>
+    <string name="password_change_desc">Please check the password hint and enter a new password.</string>
+    <string name="new_password">New Password</string>
+    <string name="message_id_empty">Administrator ID does not exist. Please enter the correct ID on the previous screen.</string>
+
+    <string name="setting_data_admin_id">AdminId: %s</string>
+    <string name="setting_data_device">Device: %s</string>
+    <string name="setting_data_device_battery">Device Battery Level: %s</string>
+    <string name="setting_data_sensor_date">Sensor: %s</string>
+    <string name="notification_calibration">Please measure and correct glucose.</string>
+    <string name="notification_calibration_at">Measure glucose in and complete the calibration.</string>
+    <string name="calibration_date_format">a hH mmM</string>
+    <string name="notification_text_device">Device </string>
+    <string name="notification_text_connected"> Connected</string>
+    <string name="notification_text_connecting"> Connecting</string>
+    <string name="notification_text_disconnected"> Not connected</string>
+    <string name="notification_text_glucose"> Glucose:</string>
+    <string name="notification_text_device_connect_plz">Please connect the device.</string>
+    <string name="notification_text_warmup_plz">Please do warm-up.</string>
+    <string name="notification_text_battery_cahnge">Please change the battery.</string>
+    <string name="notification_text_change_admin_password">Please replace the administrator password.</string>
+    <string name="notification_text_change_sensor">Please replace the sensor.</string>
+    <string name="file_save_start">Save the file.</string>
+    <string name="file_save_error_directory_not_exist">Unable to specify a file storage location.</string>
+    <string name="file_save_glucorse_complete">Stored blood glucose information.</string>
+    <string name="file_error_glucorse_not_found">Unable to create file.</string>
+    <string name="file_error_glucorse_io">An error occurred while writing the file.</string>
+    <string name="file_save_event_complete">Event information has been saved.</string>
+    <string name="file_error_event_not_found">Unable to create file.</string>
+    <string name="file_error_event_io">An error occurred while writing the file.</string>
+    <string name="file_save_over">You have successfully saved the file.</string>
+    <string name="progress_dialog_message">Saving data.</string>
+    <string name="button_send">SEND</string>
+    <string name="server_transfer_successful">Saved on server.</string>
+    <string name="server_transfer_failed">Failed. Please try again.</string>
+    <string name="initialization">INITIALIZATION</string>
+    <string name="max">MAX: %s</string>
+    <string name="min">MIN: %s</string>
+    <string name="graphupdatecyclesettings">GRAPH UPDATE CYCLE SETTING</string>
+    <string name="setcurrentvaluerange">SET CURRENT VALUE RANGE</string>
+    <string name="current_cycle_s">Current Cycle: %d</string>
+    <string name="second">second</string>
+    <string name="please_enter_a_multiple_of_ten">Please enter a multiple of ten.</string>
+
+    <string-array name="password_hint_array">
+        <item>1. What is your elementary school name?</item>
+        <item>2. What is your family name?</item>
+        <item>3. What is your most favorite movie?</item>
+    </string-array>
+</resources>

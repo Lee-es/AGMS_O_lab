@@ -1,0 +1,12 @@
+
+g	java:S116"RRename this field "et_time" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷©ƒö
+j	java:S116"URename this field "tv_nowtime" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ØŸš¶
+f	java:S116"QRename this field "btn_ok" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Ø²è
+o	java:S116"URename this field "btn_cancle" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²œ†„üÿÿÿÿ
+m	java:S116"XRename this field "GraphUtildata" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(é¤šë
+t
+java:S1450"YRemove the "btn_cancle" field and declare it as a local variable in the relevant methods.(²œ†„üÿÿÿÿ
+k
+java:S1450"URemove the "btn_ok" field and declare it as a local variable in the relevant methods.(¯Ø²è
+o
+java:S1450"YRemove the "tv_nowtime" field and declare it as a local variable in the relevant methods.(ØŸš¶

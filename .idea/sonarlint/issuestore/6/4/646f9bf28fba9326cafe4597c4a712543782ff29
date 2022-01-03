@@ -1,0 +1,11 @@
+
+P
+java:S1118":Add a private constructor to hide the implicit public one.(ˆÄÏ
+O
+java:S1874"9Remove this use of "PreferenceManager"; it is deprecated.(İøÜ 
+Y
+java:S1874"CRemove this use of "getDefaultSharedPreferences"; it is deprecated.(İøÜ 
+T
+java:S1874"9Remove this use of "PreferenceManager"; it is deprecated.(é¤ó·ûÿÿÿÿ
+^
+java:S1874"CRemove this use of "getDefaultSharedPreferences"; it is deprecated.(é¤ó·ûÿÿÿÿ
