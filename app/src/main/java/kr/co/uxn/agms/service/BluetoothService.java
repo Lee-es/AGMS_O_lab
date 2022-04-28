@@ -271,8 +271,8 @@ public class BluetoothService extends  LifecycleService implements BluetoothConn
                 break;
             case (byte)0x47:
                 //kjlee Test
-                byte[] s = {uartData[2], uartData[3], uartData[4], uartData[5],uartData[6], uartData[7]};
-                byte[] s2 = {uartData[12], uartData[13], uartData[14], uartData[15]};
+                byte[] s = {uartData[2], uartData[3], uartData[4], uartData[5],uartData[6], uartData[7]};  // Current Data
+                byte[] s2 = {uartData[12], uartData[13], uartData[14], uartData[15]};                      // BatLevel Data
                 String BatLevel = new String(s2);
                 float batt = Float.parseFloat(BatLevel);
                 batt=batt*2.0f;
@@ -520,9 +520,9 @@ public class BluetoothService extends  LifecycleService implements BluetoothConn
             step =  StepHelper.ScreenStep.CALIBRATION;
         }
 
-        if(isGoWarmUpActivity){
-            step =  StepHelper.ScreenStep.WARM_UP;
-        }
+//        if(isGoWarmUpActivity){
+//            step =  StepHelper.ScreenStep.WARM_UP;
+//        }
 
         if(isGoConnectActivity || !isDeviceConnected()){
             step =  StepHelper.ScreenStep.CONNECT;
@@ -540,17 +540,17 @@ public class BluetoothService extends  LifecycleService implements BluetoothConn
                 }
 
                 break;
-            case WARM_UP:
-                notification = createWarmupNotification();
-                if(mNotificationManager!=null){
-                    mNotificationManager.cancel(CommonConstant.REQUEST_ACTIVITY);
-                    mNotificationManager.cancel(CommonConstant.REQUEST_CONNECT);
-                    if(notification!=null){
-                        mNotificationManager.notify(CommonConstant.REQUEST_WARMUP, notification);
-                    }
-                }
-
-                break;
+//            case WARM_UP:
+//                notification = createWarmupNotification();
+//                if(mNotificationManager!=null){
+//                    mNotificationManager.cancel(CommonConstant.REQUEST_ACTIVITY);
+//                    mNotificationManager.cancel(CommonConstant.REQUEST_CONNECT);
+//                    if(notification!=null){
+//                        mNotificationManager.notify(CommonConstant.REQUEST_WARMUP, notification);
+//                    }
+//                }
+//
+//                break;
             case CHANGE_ADMIN_PASSWORD:
                 notification = createChangeAdminPasswordNotification();
 
@@ -696,7 +696,7 @@ public class BluetoothService extends  LifecycleService implements BluetoothConn
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.e(TAG, "onDestroy");
+        Log.e(TAG, "onDestroy 확인 하자");
         mServiceHandler.removeCallbacksAndMessages(null);
     }
 

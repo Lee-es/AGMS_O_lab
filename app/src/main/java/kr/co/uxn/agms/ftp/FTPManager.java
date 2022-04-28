@@ -15,7 +15,7 @@ public class FTPManager {
     private static final String TAG="FTPManger";
     private final FTPClient mFTPClient;
 
-    private final String FTP_HOST="124.61.168.20";
+    private final String FTP_HOST="uxn-always.synology.me";
     private final String FTP_PASSWORD="uxn1234A##";
     private final int FTP_PORT=506;
 

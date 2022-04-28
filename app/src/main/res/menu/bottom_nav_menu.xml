@@ -17,13 +17,12 @@
         android:title="@string/title_calibration" />
 
     <item
-        android:id="@+id/navigation_range"
-        android:icon="@drawable/ic_baseline_add_alert_24"
-        android:title="@string/title_range" />
-
-    <item
         android:id="@+id/navigation_setting"
         android:icon="@drawable/ic_baseline_settings_24"
         android:title="@string/title_setting" />
+    <item
+        android:id="@+id/navigation_range"
+        android:icon="@drawable/ic_baseline_add_alert_24"
+        android:title="@string/title_range" />
 
 </menu>

@@ -31,7 +31,6 @@ import kr.co.uxn.agms.data.room.PatientData;
 import kr.co.uxn.agms.data.room.SensorLog;
 import kr.co.uxn.agms.data.room.SensorRepository;
 import kr.co.uxn.agms.service.BluetoothService;
-import kr.co.uxn.agms.ui.dashboard.ChartHelper2;
 import kr.co.uxn.agms.ui.dashboard.FullChartActivity;
 import kr.co.uxn.agms.util.GraphUtil;
 
@@ -66,7 +65,7 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
     private int graphMin =GraphUtil.getInstance().getGraph_Current_MIN();
     private int graphMax =GraphUtil.getInstance().getGraph_Current_MAX();
 
-    ChartHelper2 mHelper;
+    //ChartHelper2 mHelper;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -98,7 +97,7 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
         mRepository = new SensorRepository(getActivity().getApplication());
 
 
-        mHelper = new ChartHelper2(getContext(), root.findViewById(R.id.chart1), graphMin, graphMax);
+       // mHelper = new ChartHelper2(getContext(), root.findViewById(R.id.chart1), graphMin, graphMax);
 //        Intent intent = new Intent(
 //                super.getContext(),//현재제어권자
 //                AutoSave.class); // 이동할 컴포넌트
@@ -150,7 +149,7 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
 
     }
     private Observer<GlucoseData> mDataObserver = glucoseData -> {
-        doChartUpdate();
+        //doChartUpdate();
         if(glucoseData==null){
 
             currentData.setText("?");
@@ -185,8 +184,6 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
 
     Runnable mUpdateRunnable = () -> {
         setGreetMessage();
-        setUserName();
-        loadData();
     };
 
     @Override
@@ -215,12 +212,13 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
     private void setUserName(){
         if(CommonConstant.MODE_IS_MEDICAL){
             LiveData<PatientData> data = mRepository.getLastUser();
+            PatientData mdata =data.getValue();
             data.observe(getViewLifecycleOwner(), patientData -> {
                 if(patientData!=null){
                     userName.setText(patientData.getName());
                     patientNumber.setText(String.valueOf(patientData.getPatientNumber()));
                     mPatientNumber = patientData.getPatientNumber();
-                    loadData();
+                   // loadData();
                 }
 
             });
@@ -246,14 +244,14 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
         if(CommonConstant.MODE_IS_MEDICAL){
             if(mPatientNumber!=0){
                 mList = mRepository.getGlucoseDataList(mPatientNumber, startTime, endTime);
-                mList.observe(getViewLifecycleOwner(),mListObserver);
-                mHelper.setData(mList.getValue());
-                mHelper.initChartView();
+               // mList.observe(getViewLifecycleOwner(),mListObserver);
+              //  mHelper.setData(mList.getValue());
+               // mHelper.initChartView();
             }
         } else {
             if(address!=null){
                 mList = mRepository.getGlucoseDataList(address, startTime, endTime);
-                mList.observe(getViewLifecycleOwner(),mListObserver);
+               // mList.observe(getViewLifecycleOwner(),mListObserver);
             }
         }
 
@@ -262,28 +260,28 @@ public class NewHomeFragment extends Fragment implements SharedPreferences.OnSha
     }
 
     private long lastUpdateTime= 0;
-    private Observer<List<GlucoseData>> mListObserver = new Observer<List<GlucoseData>>() {
-        @Override
-        public void onChanged(List<GlucoseData> sensorData) {
-
-            if(!chartUpdateFlag){
-                chartUpdateFlag = true;
-                if(isChartInit){
-                    mHelper.setData(mList.getValue());
-                    mHelper.updateFirstData();
-                    chartUpdateFlag = false;
-                } else {
-                    mHelper.setData(mList.getValue());
-                    lastUpdateTime = System.currentTimeMillis();
-                    mHelper.initChartView();
-                    isChartInit = true;
-                    chartUpdateFlag = false;
-                }
-            }
-
-
-        }
-    };
+//    private Observer<List<GlucoseData>> mListObserver = new Observer<List<GlucoseData>>() {
+//        @Override
+//        public void onChanged(List<GlucoseData> sensorData) {
+//
+//            if(!chartUpdateFlag){
+//                chartUpdateFlag = true;
+//                if(isChartInit){
+//                    mHelper.setData(mList.getValue());
+//                    mHelper.updateFirstData();
+//                    chartUpdateFlag = false;
+//                } else {
+//                    mHelper.setData(mList.getValue());
+//                    lastUpdateTime = System.currentTimeMillis();
+//                    mHelper.initChartView();
+//                    isChartInit = true;
+//                    chartUpdateFlag = false;
+//                }
+//            }
+//
+//
+//        }
+//    };
 
 
 

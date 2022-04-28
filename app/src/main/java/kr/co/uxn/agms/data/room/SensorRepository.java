@@ -64,6 +64,11 @@ public class SensorRepository {
         return mPatientDataDao.getData(number);
     }
 
+    public PatientData getLastPatient()
+    {
+        return mPatientDataDao.getLastPatient();
+    }
+
     public LiveData<PatientData> getLastUser(){
         return mPatientDataDao.getLastUser();
     }
@@ -104,6 +109,9 @@ public class SensorRepository {
     }
     public List<GlucoseData> getGlucoseAllDataArrayList(long patientNumber){
         return mGlucoseDataDao.getGlucoseAllDataArrayList(patientNumber);
+    }
+    public List<GlucoseData> getSendDataList(long patientNumber,long targetTime){
+        return  mGlucoseDataDao.getSendDataList(patientNumber,targetTime);
     }
 
     public LiveData<List<EventData>> getEventDataAllList(long patientNumber){

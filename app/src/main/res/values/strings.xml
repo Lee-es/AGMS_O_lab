@@ -12,7 +12,11 @@
     <string name="title_range">Range</string>
     <string name="title_setting">Setting</string>
     <string name="title_chart">Chart</string>
-
+    <string name="not_available">n/a</string>
+    <string name="error">error</string>
+    <string name="select_device">Select device</string>
+    <string name="AVAILABLEDEVICES">AVAILABLE DEVICES:</string>
+    <string name="scan">SCAN</string>
     <string name="calibration_desc">After 30 minutes of the first calibration,\ndo the second calibration.</string>
 
     <string name="connect_title">Serial</string>
@@ -94,6 +98,7 @@
     <string name="text_event_time">Time : %s</string>
     <string name="text_event_content">Event : %s</string>
     <string name="text_event_glucose">glucose : %s</string>
+    <string name="text_experiment_researcher">Experiment_Researcher: %s</string>
     <string name="text_confirm_event">Do you want to record this event?</string>
 
 
@@ -104,6 +109,7 @@
     <string name="dialog_app_off_confirm">Closing the APP disconnects the device and terminates the patient"'"s measurement.\nDo you want to continue?</string>
 
     <string name="button_save">Save</string>
+    <string name="button_allsave">All Data Save</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_off">App Off</string>
 
@@ -150,6 +156,7 @@
     <string name="action_next">Next</string>
 
     <string name="error_empty_patient_number">Please enter the patient number.</string>
+    <string name="error_experiment_researcher">Please enter the experiment_researcher name.</string>
     <string name="error_empty_patient_name">Please enter the patient name.</string>
     <string name="error_not_number_error_patient_number">Please enter the patient number only as a number.</string>
     <string name="file_save_at_index">Save the data.</string>
@@ -235,6 +242,8 @@
     <string name="current_cycle_s">Current Cycle: %d</string>
     <string name="second">second</string>
     <string name="please_enter_a_multiple_of_ten">Please enter a multiple of ten.</string>
+    <string name="scanner_empty">No device found</string>
+    <string name="experiment_researcher">experiment_researcher</string>
 
     <string-array name="password_hint_array">
         <item>1. What is your elementary school name?</item>

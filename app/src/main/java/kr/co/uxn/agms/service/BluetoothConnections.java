@@ -18,6 +18,8 @@ import android.util.Log;
 
 import androidx.preference.PreferenceManager;
 
+import com.amitshekhar.DebugDB;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -183,6 +185,7 @@ public class BluetoothConnections extends BluetoothGattCallback implements Bluet
             Log.e(TAG,"data:"+stringBuilder.toString() + " , " + tmpString);
         }
         mContext.sendBroadcast(intent);
+        DebugDB.getAddressLog();
     }
     private void broadcastUpdate(final String action, final String address) {
         final String newAddress = String.valueOf(address);
@@ -397,7 +400,7 @@ public class BluetoothConnections extends BluetoothGattCallback implements Bluet
         }
 
         if(mBluetoothDeviceAddress!=null) {
-            Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress:"+mBluetoothDeviceAddress);
+            Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress:"+mBluetoothDeviceAddress);          //여기
             if(mConnectionState==BluetoothService.STATE_CONNECTING){
                 Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress STATE_CONNECTING");
                 return BluetoothDevice.BOND_BONDING;
@@ -407,7 +410,7 @@ public class BluetoothConnections extends BluetoothGattCallback implements Bluet
                 Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress STATE_CONNECTED");
                 return BluetoothDevice.BOND_BONDED;
             }
-            Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress BOND_NONE");
+            Log.e(TAG,"getPairingDeviceStatus mBluetoothDeviceAddress BOND_NONE");                   //여기
 
             return BluetoothDevice.BOND_NONE;
         } else {
@@ -431,10 +434,10 @@ public class BluetoothConnections extends BluetoothGattCallback implements Bluet
     public void removeBluetoothUpdates() {
         try {
             close();
-//            mNotificationManager.cancelAll();
+        //   mNotificationManager.cancelAll();
             isReconnectRequested = false;
             BluetoothUtil.setRequestingLocationUpdates(mContext, null);
-//            stopSelf();
+     //       stopSelf();
         } catch (SecurityException unlikely) {
             BluetoothUtil.setRequestingLocationUpdates(mContext,  null);
 

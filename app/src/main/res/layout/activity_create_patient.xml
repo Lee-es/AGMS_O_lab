@@ -11,14 +11,14 @@
     android:background="@color/app_background">
 
     <TextView
-        android:layout_marginTop="16dp"
         android:id="@+id/page_title"
-        android:textStyle="bold"
-        android:text="@string/create_patient"
-        android:textSize="20sp"
-        android:textColor="#ffffff"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/create_patient"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:id="@+id/page_title_line"
@@ -32,25 +32,44 @@
 
     <TextView
         android:id="@+id/message_login"
-        android:layout_marginTop="18dp"
-        android:textStyle="bold"
-        android:layout_below="@id/page_title_line"
-        android:textColor="@color/text_color"
-        android:text="@string/message_login"
-        android:textSize="36sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
+        android:layout_below="@id/page_title_line"
+        android:layout_marginTop="18dp"
+        android:text="@string/message_login"
+        android:textColor="@color/text_color"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:layout_marginTop="60dp"
-        android:layout_below="@id/message_login"
-        android:id="@+id/user_name_title"
-        android:text="@string/message_patient_name"
-        android:textSize="12sp"
-        android:textColor="@color/text_color"
+        android:id="@+id/experiment_researcher_title"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message_login"
+        android:layout_marginTop="60dp"
+        android:text="@string/experiment_researcher"
+        android:textColor="@color/text_color"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/experiment_researcher"
+        style="@style/edit_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/experiment_researcher_title"
+        android:layout_marginTop="8dp"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="true" />
+
+    <TextView
+        android:id="@+id/user_name_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/experiment_researcher"
+        android:layout_marginTop="8dp"
+        android:text="@string/message_patient_name"
+        android:textColor="@color/text_color"
+        android:textSize="12sp" />
 
     <EditText
         style="@style/edit_text"
@@ -64,14 +83,14 @@
         android:selectAllOnFocus="true" />
 
     <TextView
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/username"
         android:id="@+id/number_title"
-        android:text="@string/message_patient_number"
-        android:textSize="12sp"
-        android:textColor="@color/text_color"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username"
+        android:layout_marginTop="15dp"
+        android:text="@string/message_patient_number"
+        android:textColor="@color/text_color"
+        android:textSize="12sp" />
     <EditText
         style="@style/edit_text"
         android:layout_below="@id/number_title"

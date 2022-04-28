@@ -31,77 +31,80 @@
         android:layout_height="1dp" />
 
     <TextView
-        android:layout_marginTop="14dp"
-        android:textSize="16sp"
-        android:layout_below="@id/page_title_line"
-        android:textColor="#fff"
-        android:text="@string/message_connect"
         android:id="@+id/calibration_desc"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <TextView
+        android:layout_height="wrap_content"
+        android:layout_below="@id/page_title_line"
+        android:layout_marginTop="14dp"
+        android:text="@string/message_connect"
         android:textColor="#fff"
-        android:text="@string/connect_title"
-        android:layout_marginTop="60dp"
-        android:layout_below="@id/calibration_desc"
-        android:id="@+id/calibration_title_1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <EditText
-        style="@style/edit_text"
-        android:minHeight="44dp"
+        android:textSize="16sp" />
 
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/calibration_title_1"
-        android:id="@+id/input"
-        android:text="5C:02:72:67:"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:background="#FFFFFF"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_select"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/select_device"
+            android:textColor="#000000"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_available"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/AVAILABLEDEVICES"
+            android:textColor="#56cce0"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_select" />
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            app:layout_constraintBottom_toTopOf="@+id/btn_scan"
+            app:layout_constraintTop_toBottomOf="@+id/tv_available"
+            android:scrollbarStyle="outsideOverlay"/>
+
+        <TextView
+            android:id="@+id/btn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:text="@string/scan"
+            android:textColor="#56cce0"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:text="@string/button_warm_up"
-        android:textColor="@color/edittext_color"
-        android:minHeight="44dp"
-        android:id="@+id/warm_up"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/selector_rectangle_56c79c_en_dis"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:text="@string/connect"
-        android:textColor="@color/edittext_color"
-        android:minHeight="44dp"
         android:id="@+id/connect"
-        android:layout_above="@id/warm_up"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/selector_rectangle_56c79c_en_dis"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:visibility="gone"
-        android:id="@+id/recyclerView"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@id/warm_up"
-        android:layout_above="@id/skip_warm_up"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Button
-        android:visibility="gone"
-        android:text="@string/button_skip_warm_up"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentRight="true"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:id="@+id/skip_warm_up"
+        android:layout_marginBottom="50dp"
+        android:background="@drawable/selector_rectangle_56c79c_en_dis"
+        android:minHeight="44dp"
+        android:text="@string/connect"
+        android:textColor="@color/edittext_color" />
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+
+
+
 </RelativeLayout>

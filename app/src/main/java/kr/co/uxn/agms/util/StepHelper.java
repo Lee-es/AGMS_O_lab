@@ -3,7 +3,6 @@ package kr.co.uxn.agms.util;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-
 import android.text.TextUtils;
 import android.text.format.DateUtils;
 
@@ -16,7 +15,6 @@ import kr.co.uxn.agms.MainActivity;
 import kr.co.uxn.agms.SplashActivity;
 import kr.co.uxn.agms.ui.admin.CreateAdminActivity;
 import kr.co.uxn.agms.ui.connect.ConnectActivity;
-import kr.co.uxn.agms.ui.connect.WarmupActivity;
 import kr.co.uxn.agms.ui.patient.CreatePatientActivity;
 
 public class StepHelper {
@@ -24,7 +22,7 @@ public class StepHelper {
 
     }
     public enum ScreenStep {
-        SPLASH, LOGIN, CONNECT, WARM_UP, HOME,CALIBRATION, CREATE_PATIENT, CREATE_ADMIN,CHANGE_SENSOR,CHANGE_ADMIN_PASSWORD
+        SPLASH, LOGIN, CONNECT, HOME,CALIBRATION, CREATE_PATIENT, CREATE_ADMIN,CHANGE_SENSOR,CHANGE_ADMIN_PASSWORD
     }
 
     private static String USER_NAME  = null;
@@ -88,21 +86,19 @@ public class StepHelper {
             isGoLoginActivity = false;
             String patientName = sp.getString(CommonConstant.PREF_CURRENT_PATIENT_NAME, null);
             long patientNumber = sp.getLong(CommonConstant.PREF_CURRENT_PATIENT_NUMBER, 0);
-            String currentAdminId = sp.getString(CommonConstant.PREF_CURRENT_ADMIN_ID, null);
+
             if(TextUtils.isEmpty(patientName) || patientNumber==0){
                 isGoCreatePatientActivity = true;
             }
-            if(TextUtils.isEmpty(currentAdminId)){
-                isGoAdminRegister = true;
-            }
+
         }
 
         if(isGoCalibration){
             step =  ScreenStep.CALIBRATION;
         }
-        if(isGoWarmUpActivity){
-            step =  ScreenStep.WARM_UP;
-        }
+//        if(isGoWarmUpActivity){
+//            step =  ScreenStep.WARM_UP;
+//        }
         if(isGoConnectActivity){
             step =  ScreenStep.CONNECT;
         }
@@ -123,14 +119,14 @@ public class StepHelper {
                 intent = new Intent(context, ConnectActivity.class);
                 break;
             case LOGIN:
-
+                intent = new Intent(context, CreatePatientActivity.class);
                 break;
             case SPLASH:
                 intent = new Intent(context, SplashActivity.class);
                 break;
-            case WARM_UP:
-                intent = new Intent(context, WarmupActivity.class);
-                break;
+//            case WARM_UP:
+//                intent = new Intent(context, WarmupActivity.class);
+//                break;
             case HOME:
                 intent = new Intent(context, MainActivity.class);
                 break;

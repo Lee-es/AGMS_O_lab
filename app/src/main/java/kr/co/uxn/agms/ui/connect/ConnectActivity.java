@@ -1,13 +1,18 @@
 package kr.co.uxn.agms.ui.connect;
 
 
+import android.app.AlertDialog;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.preference.PreferenceManager;
@@ -21,52 +26,69 @@ public class ConnectActivity extends BleActivity {
 
 
 
-    Button buttonWarmUp;
+
     Button connect;
 
-    EditText editText;
+    private BleListAdapter mAdapter;
+    private AdapterItem mdevice;
+    private int mPrevPosition=-1;
+    private ListView listView ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_connect);
-        buttonWarmUp = findViewById(R.id.warm_up);
-        buttonWarmUp.setEnabled(false);
+
         connect = findViewById(R.id.connect);
-
-
-        editText = findViewById(R.id.input);
-
-        buttonWarmUp.setEnabled(false);
+        connect.setEnabled(false);
 
 
 
         connect.setOnClickListener(view -> {
             connect.setEnabled(false);
-            boolean result = runDeviceConnect();
-            long delay = 500;
-            if(!result){
-                delay = 20000;
+            listView.setEnabled(false);
+            if(mdevice!=null&&mdevice.getAddress()!=getTryToConnectAddress()){
+                doDisConncet();
             }
-            connect.postDelayed(() -> connect.setEnabled(true),delay);
+             runDeviceConnect();
+            mAdapter.clearDevices();
         });
 
-        buttonWarmUp.setOnClickListener(view -> {
-            buttonWarmUp.setEnabled(false);
-            buttonWarmUp.postDelayed(() -> buttonWarmUp.setEnabled(true),1000);
-            PreferenceManager.getDefaultSharedPreferences(ConnectActivity.this)
-                    .edit()
-                    .putLong(CommonConstant.PREF_DEVICE_NEW_SENSOR_DATE, System.currentTimeMillis())
-                    .putLong(CommonConstant.PREF_WARM_UP_START_DATE, System.currentTimeMillis())
-                    .apply();
 
-            goWarmup();
+
+        listView=findViewById(R.id.list);
+        final LayoutInflater inflater = LayoutInflater.from(listView.getContext());
+        listView.setEmptyView(inflater.inflate(R.layout.layout_bt_empty,listView,false));
+        listView.setAdapter(mAdapter=new BleListAdapter());
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                stopScan();
+                if(position!=mPrevPosition){
+                    connect.setEnabled(false);
+
+                }
+                connect.setEnabled(true);
+                mPrevPosition=position;
+
+                view.setSelected(true);
+                 mdevice=(AdapterItem) mAdapter.getItem(position);
+            }
         });
+
+        TextView btn_scan=findViewById(R.id.btn_scan);
+        btn_scan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startScan();
+            }
+        });
+
         startScan();
     }
     private boolean runDeviceConnect(){
-        if(TextUtils.isEmpty(editText.getText())){
+        if(TextUtils.isEmpty(mdevice.getAddress())){
             Toast.makeText(this,"Invalid address",Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -77,7 +99,7 @@ public class ConnectActivity extends BleActivity {
                 .apply();
         boolean result = false;
         try {
-            result = doDeviceClicked(true,editText.getText().toString());
+            result = doDeviceClicked(true,mdevice.getAddress());
 
         }catch (Exception e){}
         if(result){
@@ -86,7 +108,12 @@ public class ConnectActivity extends BleActivity {
         return result;
     }
     private void startScan(){
+        doDisConncet();
+        mPrevPosition=-1;
+        connect.setEnabled(false);
+        mAdapter.clearDevices();
         doScan();
+        listView.setEnabled(true);
     }
 
     @Override
@@ -111,43 +138,34 @@ public class ConnectActivity extends BleActivity {
             int rssi = intent.getIntExtra(BluetoothService.EXTRA_RSSI,0);
             Log.e("check","device:"+device.getName()+"/"+device.getAddress());
             AdapterItem item = new AdapterItem(rssi,device.getName(), device.getAddress());
-//            mAdapter.addScanResult(item);
-//            if(TextUtils.isEmpty(editText.getText())){
-//                editText.setText(device.getAddress());
-//            }
-
+            mAdapter.update(item);
         }
     }
 
     @Override
     public void doWhenDeviceConnected() {
-
-        editText.setText(mBluetoothService.getConnectedAddress());
-        connect.setEnabled(true);
         checkWarmup();
     }
 
     public void checkWarmup(){
-        long warmUpStartDate = PreferenceManager.getDefaultSharedPreferences(this)
-                .getLong(CommonConstant.PREF_WARM_UP_START_DATE,0);
-        long currentTime = System.currentTimeMillis();
         if(mBluetoothService!=null && mBluetoothService.isDeviceConnected()){
 
-            if(warmUpStartDate==0){
-                buttonWarmUp.setEnabled(true);
+            StringBuilder sb= new StringBuilder();
+            sb.append("디바이스: "+mdevice.getAddress());
+            sb.append("\n");
+            sb.append("\n");
+            sb.append("연결이 되었습니다.");
 
-            } else {
-                if(currentTime - warmUpStartDate < CommonConstant.WARM_UP_DELAY){
-                    goWarmup();
-                } else {
-                    goHome();
-                }
-            }
+            new AlertDialog.Builder(this)
+                    .setTitle(R.string.confirm)
+                    .setMessage(sb.toString())
+                    .setNegativeButton(R.string.button_cancel,(dialogInterface, i) -> startScan())
+                    .setPositiveButton(R.string.done,(dialogInterface,i)->doGoHome())
+                    .show();
         } else {
-            buttonWarmUp.setEnabled(false);
+
+            Toast.makeText(ConnectActivity.this,R.string.alert_message_device_connect_error,Toast.LENGTH_SHORT);
         }
-
-
     }
 
     @Override
@@ -155,19 +173,15 @@ public class ConnectActivity extends BleActivity {
         checkWarmup();
     }
 
-    static class AdapterItem {
+    private void doGoHome(){
+        PreferenceManager.getDefaultSharedPreferences(ConnectActivity.this)
+                .edit()
+                .putLong(CommonConstant.PREF_DEVICE_NEW_SENSOR_DATE, System.currentTimeMillis())
+                .putLong(CommonConstant.PREF_WARM_UP_START_DATE, System.currentTimeMillis())
+                .apply();
 
-        final String uuid;
-        final String name;
-        final int rssi;
-
-        AdapterItem(int rssi, String name, String uuid) {
-            this.name = name;
-            this.uuid = uuid;
-            this.rssi = rssi;
-        }
+        goHome();
     }
-
 
 
 }

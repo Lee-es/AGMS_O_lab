@@ -83,9 +83,13 @@ public class CommonConstant {
     public static final long SOUND_VIBRATE_DURATION = 15000L;
 
     public static final long ONE_MINUTE = 60000L;
+    public static final String HOST = "141.164.52.144";   //서버 주소
+    public static final int    PORT = 5000;               //서버 포트
 
-    public static final int GRAPH_GLUCOSE_MIN = 0;
-    public static final int GRAPH_GLUCOSE_MAX = 200;
-    public static  int GRAPH_CURRENT_MIN = -20;
-    public static  int GRAPH_CURRENT_MAX = 100;
+
+   // public static final int GRAPH_GLUCOSE_MIN = 0;
+   // public static final int GRAPH_GLUCOSE_MAX = 200;
+   // public static  int GRAPH_CURRENT_MIN = -20;
+   // public static  int GRAPH_CURRENT_MAX = 100;
+
 }

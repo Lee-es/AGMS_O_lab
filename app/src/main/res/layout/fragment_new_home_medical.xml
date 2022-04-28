@@ -28,25 +28,26 @@
         android:background="#56c79c"
         android:layout_width="match_parent"
         android:layout_height="1dp" />
-    <TextView
-        android:layout_below="@id/page_title_line"
-        android:layout_marginTop="18dp"
-        android:id="@+id/greet_message"
-        android:textSize="14sp"
-        android:textColor="@color/text_color"
-        android:text="@string/greet_morning"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
     <TextView
-        android:layout_below="@id/greet_message"
-        android:id="@+id/username"
-        android:text="username"
-        android:textSize="25sp"
-        android:textStyle="bold"
-        android:textColor="@color/text_color"
+        android:id="@+id/greet_message"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_below="@id/page_title_line"
+        android:layout_marginTop="18dp"
+        android:text="@string/greet_morning"
+        android:textColor="@color/text_color"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/greet_message"
+        android:text="username"
+        android:textColor="@color/text_color"
+        android:textSize="25sp"
+        android:textStyle="bold" />
     <TextView
         android:layout_below="@id/username"
         android:id="@+id/patient_number"
@@ -58,14 +59,13 @@
         android:layout_height="wrap_content" />
 
     <FrameLayout
-        android:background="@drawable/layer_oval_233b53_40000000"
         android:id="@+id/frameLayout"
-        android:layout_width="180dp"
-        android:layout_centerHorizontal="true"
-        android:layout_height="180dp"
+        android:layout_width="260dp"
+        android:layout_height="266dp"
         android:layout_below="@id/username"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="62dp"
-        >
+        android:background="@drawable/layer_oval_233b53_40000000">
 
         <LinearLayout
 
@@ -85,9 +85,9 @@
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
                 android:padding="0dp"
-                android:textColor="@color/text_color"
                 android:text="@string/none_value"
-                android:textSize="45sp" />
+                android:textColor="@color/text_color"
+                android:textSize="70sp" />
 
             <TextView
                 android:id="@+id/textView3"
@@ -99,41 +99,41 @@
                 android:gravity="top"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:textColor="@color/text_dark_color"
                 android:padding="0dp"
                 android:text="nA"
-                android:textSize="18sp" />
+                android:textColor="@color/text_dark_color"
+                android:textSize="20sp" />
         </LinearLayout>
     </FrameLayout>
 
-    <TextView
-        android:layout_below="@id/frameLayout"
-        android:layout_marginTop="25dp"
-        android:id="@+id/diary_statics"
-        android:textStyle="bold"
-        android:text="@string/title_statistic"
-        android:textSize="16sp"
-        android:textColor="#ffffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<!--    <TextView-->
+<!--        android:id="@+id/diary_statics"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@id/frameLayout"-->
+<!--        android:layout_marginTop="25dp"-->
+<!--        android:text="@string/title_statistic"-->
+<!--        android:textColor="#ffffff"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textStyle="bold" />-->
 
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart1"
-        android:layout_width="match_parent"
-        android:layout_height="116dp"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/diary_statics" />
+<!--    <com.github.mikephil.charting.charts.LineChart-->
+<!--        android:id="@+id/chart1"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="116dp"-->
+<!--        android:layout_below="@id/diary_statics"-->
+<!--        android:layout_marginTop="20dp" />-->
 
-    <androidx.appcompat.widget.AppCompatImageButton
-        android:layout_alignParentRight="true"
+<!--    <androidx.appcompat.widget.AppCompatImageButton-->
+<!--        android:id="@+id/full_screen_button"-->
 
-        android:layout_alignTop="@id/diary_statics"
-        android:tint="@color/white"
-        android:src="@drawable/ic_baseline_open_in_full_24"
-        android:id="@+id/full_screen_button"
-        android:background="?attr/selectableItemBackgroundBorderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignTop="@id/diary_statics"-->
+<!--        android:layout_alignParentRight="true"-->
+<!--        android:background="?attr/selectableItemBackgroundBorderless"-->
+<!--        android:src="@drawable/ic_baseline_open_in_full_24"-->
+<!--        android:tint="@color/white" />-->
 
 
 

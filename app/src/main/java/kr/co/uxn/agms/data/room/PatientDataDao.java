@@ -17,6 +17,9 @@ public interface PatientDataDao {
     @Query("SELECT * from patient_data where patient_number = :patientNumber order by uid desc limit 1")
     LiveData<PatientData> getLiveData(long patientNumber);
 
+    @Query("SELECT * from patient_data order by uid desc limit 1")
+    PatientData getLastPatient();
+
     @Query("SELECT * from patient_data order by uid asc")
     LiveData<List<PatientData>> getAll();
 
@@ -25,6 +28,7 @@ public interface PatientDataDao {
 
     @Query("SELECT * from patient_data order by uid desc limit 1")
     LiveData<PatientData> getLastUser();
+
 
     @Query("SELECT * from patient_data where name = :patientName order by uid asc")
     List<PatientData> queryPatient(String patientName);

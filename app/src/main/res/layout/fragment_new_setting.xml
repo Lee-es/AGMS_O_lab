@@ -17,21 +17,22 @@
         android:textColor="#ffffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="32dp"
+        android:id="@+id/button_new_user"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/page_title"
-        android:minHeight="72dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:gravity="left|center_vertical"
+        android:minHeight="72dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
-        android:id="@+id/button_new_user"
-        android:textColor="@color/text_color"
         android:text="@string/button_new_user"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textColor="@color/text_color"
+        android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_marginTop="10dp"
@@ -83,19 +84,19 @@
         android:layout_height="wrap_content" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="10dp"
+        android:id="@+id/button_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/button_save"
-        android:minHeight="72dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:gravity="left|center_vertical"
+        android:minHeight="72dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
-        android:id="@+id/button_cancel"
-        android:textColor="@color/text_color"
         android:text="@string/button_off"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:textColor="@color/text_color"
+        android:textSize="18sp" />
 
 </RelativeLayout>

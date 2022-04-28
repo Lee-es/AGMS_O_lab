@@ -21,6 +21,9 @@ public interface GlucoseDataDao {
     @Query("SELECT * from glucose_data where patient_number = :patientNumber and data_date >= :startTime and data_date <= :endTime order by data_date asc")
     LiveData<List<GlucoseData>> getDataList(long patientNumber, long startTime, long endTime);
 
+    @Query(value="SELECT * from glucose_data where patient_number = :patientNumber and data_date > :targetTime order by data_date asc")
+    List<GlucoseData> getSendDataList(long patientNumber,long targetTime);
+
     @Query("SELECT * from glucose_data where device_address = :deviceAddress and data_date >= :startTime and data_date <= :endTime order by data_date asc")
     List<GlucoseData> queryDataList(String deviceAddress, long startTime, long endTime);
 

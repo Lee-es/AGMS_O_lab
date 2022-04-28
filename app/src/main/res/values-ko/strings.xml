@@ -46,7 +46,7 @@
 
 
     <string name="title_warm_up">센서 안정화</string>
-    <string name="button_warm_up">센서 안정화</string>
+    <string name="button_warm_up">다음</string>
     <string name="button_skip_warm_up">건너뛰기</string>
     <!-- Ble scan error messages -->
     <string name="error_bluetooth_not_available">블루투스를 사용할 수 없습니다.</string>
@@ -86,11 +86,12 @@
     <string name="file_save_now">파일 저장중입니다.</string>
     <string name="alert_message_device_connect_error">기기와 스마트폰이 연결되지 않았습니다.</string>
 
-    <string name="button_new_patient">환자 변경</string>
+    <string name="button_new_patient">실험 교체</string>
     <string name="button_new_user">New user</string>
     <string name="button_new_device">디바이스 교체</string>
     <string name="button_new_sensor">센서 교체</string>
     <string name="confirm">확인</string>
+    <string name="error">오류</string>
     <string name="text_event_time">시간: %s</string>
     <string name="text_event_content">이벤트: %s</string>
     <string name="text_event_glucose">혈당 : %s</string>
@@ -98,12 +99,14 @@
 
 
 
-    <string name="text_patient_name">환자 이름: %s</string>
-    <string name="text_patient_number">환자 번호: %s</string>
-    <string name="dialog_create_patient_confirm">해당 환자를 등록 하시겠습니까?</string>
-    <string name="dialog_app_off_confirm">APP을 종료를 하시면 디바이스 연결이 끊어지고  환자의 측정도 종료가 됩니다.\n계속 하시겠습니까?</string>
+    <string name="text_patient_name">실험 이름: %s</string>
+    <string name="text_patient_number">실험 번호: %s</string>
+    <string name="text_experiment_researcher">실험 관리자 이름: %s</string>
+    <string name="dialog_create_patient_confirm">해당 실험을 등록 하시겠습니까?</string>
+    <string name="dialog_app_off_confirm">APP을 종료를 하시면 디바이스 연결이 끊어지고  실험의 측정도 종료가 됩니다.\n계속 하시겠습니까?</string>
 
-    <string name="button_save">저장</string>
+    <string name="button_save">데이터 저장</string>
+    <string name="button_allsave">모든 데이터 저장</string>
     <string name="button_cancel">취소</string>
     <string name="button_off">앱 종료</string>
 
@@ -141,17 +144,18 @@
     <string name="message_user_name">User Name</string>
     <string name="message_connect">디바이스의 주소를 입력하고 연결이 된 후\n센서 안정화을 시작합니다.</string>
 
-    <string name="create_patient">환자 등록</string>
+    <string name="create_patient">실험 등록</string>
 
-    <string name="message_patient_name">환자 이름 </string>
-    <string name="message_patient_number">환자 번호 </string>
+    <string name="message_patient_name">실험 이름 </string>
+    <string name="message_patient_number">실험 고유 번호 </string>
 
     <string name="action_create">등록</string>
     <string name="action_next">다음</string>
 
-    <string name="error_empty_patient_number">환자 번호를 입력해주세요.</string>
-    <string name="error_empty_patient_name">환자 이름을 입력해주세요.</string>
-    <string name="error_not_number_error_patient_number">환자 번호를 숫자로만 입력해주세요.</string>
+    <string name="error_empty_patient_number">실험 번호를 입력해주세요.</string>
+    <string name="error_empty_patient_name">실험 이름을 입력해주세요.</string>
+    <string name="error_experiment_researcher">실험 관리자 이름을 입력해주세요.</string>
+    <string name="error_not_number_error_patient_number">실험 번호를 숫자로만 입력해주세요.</string>
     <string name="file_save_at_index">번 데이터를 저장합니다.</string>
     <string name="error_duplicate_patient_number">사용중인 환자 번호 입니다. 다른 번호를 입력해주세요.</string>
     <string name="event_desc">혈당의 변화가 일어날 수 있는 활동을 하셨으면 시간을 선택 후 Event 칸에 20자 이내로 간단하게 적어주시고 등록 버튼을 눌러주세요.</string>
@@ -235,6 +239,13 @@
     <string name="current_cycle_s">현재 주기: %d초</string>
     <string name="second">초</string>
     <string name="please_enter_a_multiple_of_ten">10의 배수로 입력해주세요.</string>
+    <string name="scanner_empty">디바이스를 찾을 수 없습니다.</string>
+    <string name="not_available">n/a</string>
+    <string name="select_device">디바이스를 선택해주세요</string>
+    <string name="AVAILABLEDEVICES">사용 가능한 디바이스:</string>
+    <string name="scan">SCAN</string>
+    <string name="experiment_researcher">실험관리자 이름</string>
+
 
     <string-array name="password_hint_array">
         <item>1. What is your elementary school name?</item>

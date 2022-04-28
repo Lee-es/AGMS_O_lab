@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -34,12 +35,11 @@ import kr.co.uxn.agms.data.room.SensorLog;
 import kr.co.uxn.agms.data.room.SensorRepository;
 import kr.co.uxn.agms.service.BluetoothService;
 import kr.co.uxn.agms.service.BluetoothUtil;
-import kr.co.uxn.agms.ui.connect.WarmupActivity;
 import kr.co.uxn.agms.util.StepHelper;
 
 public abstract class BleActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
 
-
+    final String Tag="BleActivity";
     protected BluetoothService mBluetoothService = null;
     private boolean mBluetoothBound = false;
     int permissionEvent =0;
@@ -64,12 +64,13 @@ public abstract class BleActivity extends AppCompatActivity implements SharedPre
     public abstract void doWhenDeviceFound(Intent intent);
 
 
-    public void goWarmup(){
-        finishAffinity();
-        Intent intent = new Intent(this, WarmupActivity.class);
-        startActivity(intent);
 
-    }
+//    public void goWarmup(){
+//        finishAffinity();
+//        Intent intent = new Intent(this, WarmupActivity.class);
+//        startActivity(intent);
+//    }
+
     public void goHome(){
         finishAffinity();
         Intent intent = new Intent(this,MainActivity.class);
@@ -252,6 +253,7 @@ public abstract class BleActivity extends AppCompatActivity implements SharedPre
     }
     private String tryToConnectAddress = null;
     public boolean doDeviceClicked(boolean isShow, String address){
+
         if(address!=null){
             tryToConnectAddress = address;
         }
@@ -323,6 +325,12 @@ public abstract class BleActivity extends AppCompatActivity implements SharedPre
         mHandler.removeCallbacks(showDeviceConnectError);
     }
 
+    public void stopScan(){
+        if(mBluetoothService!=null){
+            mBluetoothService.scanLeDevice(false,false);
+        }
+    }
+
 
 
     private Runnable doWhenConnectFailRunnable = () -> {
@@ -347,7 +355,7 @@ public abstract class BleActivity extends AppCompatActivity implements SharedPre
         if(sensorLog!=null && sensorLog.getSensorState() == BluetoothService.STATE_CONNECTED){
             removeDeviceConnectError();
             mHandler.removeCallbacks(doWhenConnectFailRunnable);
-            Toast.makeText(BleActivity.this,R.string.toast_device_connected,Toast.LENGTH_SHORT).show();
+          //  Toast.makeText(BleActivity.this,R.string.toast_device_connected,Toast.LENGTH_SHORT).show();
         }
     };
     private void showSimpleDialog(int resStringId){
@@ -417,4 +425,23 @@ public abstract class BleActivity extends AppCompatActivity implements SharedPre
         }
     }
 
+    public void doDisConncet(){
+        Log.e(Tag,"doDisConnect in");
+        PreferenceManager.getDefaultSharedPreferences(this)
+                .edit()
+                .putString(CommonConstant.PREF_LAST_CONNECT_DEVICE, null)
+                .putLong(CommonConstant.PREF_WARM_UP_START_DATE,0)
+                .putLong(CommonConstant.PREF_DEVICE_FIRST_PAIRING_DATE,0)
+                .putLong(CommonConstant.PREF_DEVICE_NEW_SENSOR_DATE,0)
+                .commit();
+        if(mBluetoothService!=null){
+            mBluetoothService.disconnect();
+            mBluetoothService.removeBluetoothUpdates();
+        }
+
+    }
+
+    public String getTryToConnectAddress() {
+        return tryToConnectAddress;
+    }
 }

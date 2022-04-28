@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity  {
 
     public void checkCurrentState(){
 
-        Intent intent = StepHelper.checkNextState(this,StepHelper.ScreenStep.SPLASH);
+        Intent intent = StepHelper.checkNextState(this,StepHelper.ScreenStep.LOGIN);
 
 //        intent = new Intent(this,MainActivity.class);
 //        intent = new Intent(this, DisconnectAlarmActivity.class);

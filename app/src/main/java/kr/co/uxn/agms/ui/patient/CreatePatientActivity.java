@@ -2,7 +2,6 @@ package kr.co.uxn.agms.ui.patient;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,16 +15,28 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 import kr.co.uxn.agms.CommonConstant;
 import kr.co.uxn.agms.R;
 import kr.co.uxn.agms.data.room.PatientData;
 import kr.co.uxn.agms.data.room.SensorRepository;
 import kr.co.uxn.agms.util.StepHelper;
+import okhttp3.HttpUrl;
+import okhttp3.MediaType;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 
 public class CreatePatientActivity extends AppCompatActivity {
 
     EditText usernameEditText;
     EditText numberEditText ;
+    EditText experiment_researcher_EditText;
     private SensorRepository mRepository;
 
 
@@ -38,6 +49,7 @@ public class CreatePatientActivity extends AppCompatActivity {
         mRepository = new SensorRepository(getApplication());
         usernameEditText = findViewById(R.id.username);
         numberEditText = findViewById(R.id.patient_number);
+        experiment_researcher_EditText=findViewById(R.id.experiment_researcher);
 
         final Button loginButton = findViewById(R.id.create);
 
@@ -94,6 +106,29 @@ public class CreatePatientActivity extends AppCompatActivity {
             return false;
         });
 
+
+        experiment_researcher_EditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if(TextUtils.isEmpty(experiment_researcher_EditText.getText())){
+                    experiment_researcher_EditText.setError(getString(R.string.error_experiment_researcher));
+                } else {
+                    experiment_researcher_EditText.setError(null);
+                }
+
+            }
+        });
+
         loginButton.setOnClickListener(v -> createPatient());
     }
 
@@ -101,6 +136,12 @@ public class CreatePatientActivity extends AppCompatActivity {
         if(TextUtils.isEmpty(usernameEditText.getText())){
             usernameEditText.setError(getString(R.string.error_empty_patient_name));
             usernameEditText.requestFocus();
+            return;
+        }
+
+        if(TextUtils.isEmpty(experiment_researcher_EditText.getText())){
+            experiment_researcher_EditText.setError(getString(R.string.error_experiment_researcher));
+            experiment_researcher_EditText.requestFocus();
             return;
         }
         if(TextUtils.isEmpty(numberEditText.getText())){
@@ -118,6 +159,7 @@ public class CreatePatientActivity extends AppCompatActivity {
         }
         long number = 0;
         String name = usernameEditText.getText().toString();
+        String researcher=experiment_researcher_EditText.getText().toString();
         try{
             number = Long.valueOf(numberEditText.getText().toString());
         }catch (Exception e){
@@ -129,6 +171,8 @@ public class CreatePatientActivity extends AppCompatActivity {
             return;
         }
         StringBuilder sb= new StringBuilder();
+        sb.append(getString(R.string.text_experiment_researcher, researcher));
+        sb.append("\n");
         sb.append(getString(R.string.text_patient_name, name));
         sb.append("\n");
         sb.append(getString(R.string.text_patient_number, String.valueOf(number)));
@@ -137,12 +181,13 @@ public class CreatePatientActivity extends AppCompatActivity {
         sb.append(getString(R.string.dialog_create_patient_confirm));
 
         final String patientName = name;
-        final long patientNumber = number;
+        final long patientNumber =number;
+        final String experiment_researcher=researcher;
         new AlertDialog.Builder(this)
                 .setTitle(R.string.confirm)
                 .setMessage(sb.toString())
                 .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
-                    new QueryAsyncTask(mRepository,patientName,patientNumber).execute();
+                    new Insert_Experiment_ID(patientName,patientNumber,experiment_researcher).execute();
                 })
                 .setNegativeButton(android.R.string.cancel,null)
                 .show();
@@ -188,6 +233,7 @@ public class CreatePatientActivity extends AppCompatActivity {
 
                 mRepository.createPatient(name,number);
 
+
                 setResult(Activity.RESULT_OK);
 
                 Intent intent = StepHelper.checkNextState(CreatePatientActivity.this, StepHelper.ScreenStep.LOGIN);
@@ -198,6 +244,96 @@ public class CreatePatientActivity extends AppCompatActivity {
                 finish();
             }
             repository = null;
+        }
+    }
+
+    class Insert_Experiment_ID extends AsyncTask<Void,Void, JSONObject>{
+
+        String patient_id;
+        String experiment_researcher;
+        long    patient_number;
+
+
+        public Insert_Experiment_ID(String patient_id,long patient_number,String experiment_researcher)
+        {
+            this.patient_id=patient_id;
+            this.patient_number=patient_number;
+            this.experiment_researcher=experiment_researcher;
+        }
+
+        @Override
+        protected JSONObject doInBackground(Void... voids) {
+
+            try{
+                HttpUrl httpUrl=new HttpUrl.Builder()
+                        .scheme("http")
+                        .host(CommonConstant.HOST)
+                        .port(CommonConstant.PORT)
+                        .addPathSegment("insert_experiment_id")
+                        .build();
+
+                OkHttpClient client  =new OkHttpClient();
+                JSONObject jsonInput =new JSONObject();
+
+                jsonInput.put("patient_id",patient_id);
+                jsonInput.put("patient_number",patient_number);
+                jsonInput.put("experiment_researcher",experiment_researcher);
+
+                RequestBody reqBody =RequestBody.create(
+                        MediaType.parse("application/json; charset=utf-8"),
+                        jsonInput.toString()
+                );
+                Request request=new Request.Builder()
+                        .post(reqBody)
+                        .url(httpUrl)
+                        .build();
+
+                Response responses = null;
+                responses = client.newCall(request).execute();
+                JSONObject data=new JSONObject(responses.body().string());
+                System.out.println(data);
+
+                return data;
+
+            } catch (JSONException | IOException e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            super.onPostExecute(jsonObject);
+
+            if(jsonObject!=null)
+            {
+                try {
+                    boolean success=jsonObject.getBoolean("success");
+
+                    if(success){
+                        new QueryAsyncTask(mRepository,this.patient_id,this.patient_number).execute();
+                    }
+                    else{
+                        new AlertDialog.Builder(CreatePatientActivity.this)
+                                .setTitle(R.string.error)
+                                .setMessage("서버에 등록된 아이디 입니다.\n다시작성해주세요")
+                                .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                                })
+                                .show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }else{
+                new AlertDialog.Builder(CreatePatientActivity.this)
+                        .setTitle(R.string.error)
+                        .setMessage("서버에 등록된 아이디 입니다.\n다시작성해주세요 ")
+                        .setPositiveButton(android.R.string.ok, (dialogInterface, i) -> {
+                        })
+                        .show();
+                new Insert_Experiment_ID(this.patient_id,this.patient_number,this.experiment_researcher).execute();
+            }
         }
     }
 

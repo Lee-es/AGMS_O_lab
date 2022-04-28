@@ -32,72 +32,57 @@
         android:layout_height="45dp" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/button_new_user"
-        android:minHeight="52dp"
-        android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:id="@+id/button_new_device"
-        android:textColor="@color/text_color"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@id/button_new_user"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_233b53"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:gravity="start|center_vertical"
+        android:minHeight="52dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="@string/button_new_device"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/button_new_device"
-        android:minHeight="52dp"
-        android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
-        android:id="@+id/button_graphupdatecyclesetting"
         android:textColor="@color/text_color"
-        android:text="@string/graphupdatecyclesettings"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
-    <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/button_graphupdatecyclesetting"
-        android:minHeight="52dp"
-        android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
-        android:id="@+id/button_new_rangsetting"
-        android:textColor="@color/text_color"
-        android:text="@string/setcurrentvaluerange"
-        android:layout_width="match_parent"
-        android:layout_height="45dp" />
+        android:textSize="18sp" />
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/button_new_rangsetting"
-        android:minHeight="52dp"
-        android:background="@drawable/rectangle_233b53"
-        android:textSize="18sp"
-        android:gravity="start|center_vertical"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
         android:id="@+id/button_save"
-        android:textColor="@color/text_color"
-        android:text="@string/button_save"
         android:layout_width="match_parent"
-        android:layout_height="45dp" />
+        android:layout_height="45dp"
+        android:layout_below="@+id/button_new_device"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_233b53"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:gravity="start|center_vertical"
+        android:minHeight="52dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/button_save"
+        android:textColor="@color/text_color"
+        android:textSize="18sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_allsave"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/button_save"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rectangle_233b53"
+        android:drawableEnd="@drawable/ic_baseline_chevron_right_24"
+        android:gravity="start|center_vertical"
+        android:minHeight="52dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/button_allsave"
+        android:textColor="@color/text_color"
+        android:textSize="18sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:layout_marginTop="10dp"
-        android:layout_below="@id/button_save"
+        android:layout_below="@+id/button_allsave"
         android:minHeight="52dp"
         android:background="@drawable/rectangle_233b53"
         android:textSize="18sp"
@@ -141,13 +126,6 @@
         android:paddingTop="20dp"
         android:paddingBottom="20dp">
 
-        <TextView
-            android:id="@+id/admin_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/button_continue"
-            android:textColor="#fff"
-            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/device_serial"
